@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parser"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" MinHeight="450" Height="Auto" Width="1200">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10" Grid.Column="0">
+            <DataGrid x:Name="Threats"   HorizontalAlignment="Left" Height="Auto" SelectionChanged="Threats_SelectionChanged"   >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="УБИ"  Binding="{Binding id}"/>
+                    <DataGridTextColumn Header="Наименование" Width="Auto" Binding="{Binding name}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal"  Height="40"   Width="Auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <GridSplitter Grid.Column="0"></GridSplitter>
+                    <Button x:Name="PreviousPage" Grid.Column="1"  Content="&lt;" Margin="0 0 10 0" Width="30" Height="30" Click="PreviousPage_Click" />
+
+                    <TextBlock x:Name="Counter" Grid.Column="2" Margin="0 0 10 0"  Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" TextWrapping="Wrap" Text="1" />
+
+                    <Button x:Name="NextPage" Grid.Column="3" Margin="0 0 10 0" Content="&gt;" Width="30" Height="30" Click="NextPage_Click" />
+
+                    <Button x:Name="Update" Grid.Column="4"  Content="Обновить" Width="Auto" Height="30" Click="Update_Click" />
+                </Grid>
+            </StackPanel>
+        </StackPanel>
         
+        <TextBlock x:Name="Threat" Grid.Column="1" HorizontalAlignment="Left" Margin="10" TextAlignment="Justify" LineHeight="14"  TextWrapping="Wrap"   Height="Auto" Width="Auto"/>
+        
+
     </Grid>
 </Window>
