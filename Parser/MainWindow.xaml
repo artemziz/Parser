@@ -12,10 +12,10 @@
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Margin="10" Grid.Column="0">
-            <DataGrid x:Name="Threats"   HorizontalAlignment="Left" Height="Auto" SelectionChanged="Threats_SelectionChanged"   >
+            <DataGrid x:Name="Threats" AutoGenerateColumns="False"  HorizontalAlignment="Left" Height="Auto" SelectionChanged="Threats_SelectionChanged"   >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="УБИ"  Binding="{Binding id}"/>
-                    <DataGridTextColumn Header="Наименование" Width="Auto" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="УБИ"  Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Наименование" Width="Auto" Binding="{Binding Name}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Orientation="Horizontal"  Height="40"   Width="Auto">
