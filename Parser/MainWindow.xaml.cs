@@ -224,6 +224,7 @@ namespace Parser
             saveFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
             saveFileDialog.FileName = "thrlist";
             saveFileDialog.DefaultExt = ".xlsx";
+            saveFileDialog.Filter = "xls files (*.xlsx)|*.xlsx";
             if (saveFileDialog.ShowDialog() == true)
             {
                     File.Copy(path, saveFileDialog.FileName);
