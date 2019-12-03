@@ -29,6 +29,7 @@ namespace Parser
         string oldJsonPath = Directory.GetCurrentDirectory() + "oldthrlist.txt";
         ThreatDB db = new ThreatDB();
         public int pageCount = 0;
+        
         public void Initialize()
         {
             db = new ThreatDB();
