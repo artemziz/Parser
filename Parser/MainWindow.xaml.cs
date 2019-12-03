@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 
 namespace Parser
@@ -152,37 +153,37 @@ namespace Parser
                         ChangesCount++;
                         if (db.threats[i].Name != oldDB[i].Name)
                         {
-                            change += String.Format($"Изменение в поле Наименование УБИ: было {oldDB[i].Name}, стало {db.threats[i].Name}  ");
+                            change += String.Format($"УБИ {db.threats[i].Id}\nИзменение в поле Наименование УБИ: было {oldDB[i].Name}, стало {db.threats[i].Name}  ");
                             change += "\n";
                         }
                         if (db.threats[i].Description != oldDB[i].Description)
                         {
-                            change += String.Format($"Изменение в поле Описание: было {oldDB[i].Description}, стало {db.threats[i].Description}  ");
+                            change += String.Format($"УБИ {db.threats[i].Id}\nИзменение в поле Описание: было {oldDB[i].Description}, стало {db.threats[i].Description}  ");
                             change += "\n";
                         }
                         if (db.threats[i].Source != oldDB[i].Source)
                         {
-                            change += String.Format($"Изменение в поле Источник угрозы (характеристика и потенциал нарушителя): было {oldDB[i].Source}, стало {db.threats[i].Source}  ");
+                            change += String.Format($"УБИ {db.threats[i].Id}\nИзменение в поле Источник угрозы (характеристика и потенциал нарушителя): было {oldDB[i].Source}, стало {db.threats[i].Source}  ");
                             change += "\n";
                         }
                         if (db.threats[i].Subject != oldDB[i].Subject)
                         {
-                            change += String.Format($"Изменение в поле Объект воздействия: было {oldDB[i].Subject}, стало {db.threats[i].Subject}  ");
+                            change += String.Format($"УБИ {db.threats[i].Id}\nИзменение в поле Объект воздействия: было {oldDB[i].Subject}, стало {db.threats[i].Subject}  ");
                             change += "\n";
                         }
                         if (db.threats[i].Confidentiality != oldDB[i].Confidentiality)
                         {
-                            change += String.Format($"Изменение в поле Нарушение конфиденциальности: было {oldDB[i].Confidentiality}, стало {db.threats[i].Confidentiality}  ");
+                            change += String.Format($"УБИ {db.threats[i].Id}\nИзменение в поле Нарушение конфиденциальности: было {oldDB[i].Confidentiality}, стало {db.threats[i].Confidentiality}  ");
                             change += "\n";
                         }
                         if (db.threats[i].Integrity != oldDB[i].Integrity)
                         {
-                            change += String.Format($"Изменение в поле Нарушение целостности: было {oldDB[i].Integrity}, стало {db.threats[i].Integrity}  ");
+                            change += String.Format($"УБИ {db.threats[i].Id}\nИзменение в поле Нарушение целостности: было {oldDB[i].Integrity}, стало {db.threats[i].Integrity}  ");
                             change += "\n";
                         }
                         if (db.threats[i].Availability != oldDB[i].Availability)
                         {
-                            change += String.Format($"Изменение в поле Нарушение доступности: было {oldDB[i].Availability}, стало {db.threats[i].Availability}  ");
+                            change += String.Format($"УБИ {db.threats[i].Id}\nИзменение в поле Нарушение доступности: было {oldDB[i].Availability}, стало {db.threats[i].Availability}  ");
                             change += "\n";
                         }
                         changes.Add(change);
@@ -215,6 +216,18 @@ namespace Parser
             }
 
         
+        }
+        
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialog.FileName = "thrlist";
+            saveFileDialog.DefaultExt = ".xlsx";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                    File.Copy(path, saveFileDialog.FileName);
+            }
         }
     }
     

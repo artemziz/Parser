@@ -18,23 +18,25 @@
                     <DataGridTextColumn Header="Наименование" Width="Auto" Binding="{Binding Name}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <StackPanel Orientation="Horizontal"  Height="40"   Width="Auto">
+            <StackPanel Orientation="Horizontal" Margin="40 0 0 0" Height="40"   Width="Auto">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        
                     </Grid.ColumnDefinitions>
-                    <GridSplitter Grid.Column="0"></GridSplitter>
-                    <Button x:Name="PreviousPage" Grid.Column="1"  Content="&lt;" Margin="0 0 10 0" Width="30" Height="30" Click="PreviousPage_Click" />
+                    
+                    <Button x:Name="PreviousPage" Grid.Column="0"  Content="&lt;" Margin="0 0 10 0" Width="30" Height="30" Click="PreviousPage_Click" />
 
-                    <TextBlock x:Name="Counter" Grid.Column="2" Margin="0 0 10 0"  Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" TextWrapping="Wrap" Text="1" />
+                    <TextBlock x:Name="Counter" Grid.Column="1" Margin="0 0 10 0"  Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" TextWrapping="Wrap" Text="1" />
 
-                    <Button x:Name="NextPage" Grid.Column="3" Margin="0 0 10 0" Content="&gt;" Width="30" Height="30" Click="NextPage_Click" />
+                    <Button x:Name="NextPage" Grid.Column="2" Margin="0 0 10 0" Content="&gt;" Width="30" Height="30" Click="NextPage_Click" />
 
-                    <Button x:Name="Update" Grid.Column="4"  Content="Обновить" Width="Auto" Height="30" Click="Update_Click" />
+                    <Button x:Name="Update" Grid.Column="3"  Content="Обновить" Width="Auto" Height="30" Click="Update_Click" />
+                    <Button x:Name="Save" Grid.Column="4" Content="Сохранить файл" Margin="10 0 10 0" Width="Auto" Height="30" Click="Save_Click"/>
                 </Grid>
             </StackPanel>
         </StackPanel>
